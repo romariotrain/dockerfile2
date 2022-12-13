@@ -49,7 +49,7 @@ class StockSerializer(serializers.ModelSerializer):
 
         for position in positions:
             position['stock'] = stock
-            obj, created = StockProduct.objects.update_or_create(product=position['product'],quantity=position['quantity'],price=position['price'], defaults=position)
+            obj, created = StockProduct.objects.update_or_create(stock=stock, product=position['product'], defaults=position )
 
 
         # здесь вам надо обновить связанные таблицы
